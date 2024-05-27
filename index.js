@@ -40,6 +40,7 @@ app.post('/test', (req, res) => {
         if(error) {
             return console.log(error);
         }
+        alert('Pesan email telah terkirim ke Saya')
         res.redirect('/');
     });
 })
