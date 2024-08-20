@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ darkMode: false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')) || false"
+  x-bind:class="{ 'dark': darkMode }">
+
+  <%-include("./partials/header")-%>
+  <body :class="[darkMode ? 'dark:bg-gray-900 dark:text-white' : 'bg-gray-200']">
+    <div class="m-4 p-4 flex flex-row gap-2">
+        <div class="flex flex-col gap-2">
+            <h1 class="text-4xl dark:text-white text-gray-600" data-aos="zoom-in-right" data-aos-duration="1500">Contact Me</h1>
+            <div class="flex flex-col gap-1">
+                <div data-aos="fade-up" data-aos-duration="1500">
+                    <h1 class="text-xl lg:text-2xl text-gray-600 dark:text-white">Nomor :</h1>
+                    <div class="border-l-4 border-gray-700 dark:border-gray-800 pl-4">
+                        <p class="text-lg lg:text-xl text-gray-600 dark:text-white">+62 895-0250-2731</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500">
+                    <h1 class="text-xl lg:text-2xl text-gray-600 dark:text-white">Email :</h1>
+                    <div class="border-l-4 border-gray-700 dark:border-gray-800 pl-4">
+                        <p class="text-lg lg:text-xl text-gray-600 dark:text-white">yankurniawan60@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="w-56 hidden lg:block absolute right-0 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Lokasi</h2>
+            <div id="map" class="rounded-lg shadow-lg"></div>
+        </div>
+    </div>
+    <div class="m-4 p-4">
+        <h1 class="text-4xl dark:text-white text-gray-600" data-aos="zoom-in-right" data-aos-duration="1500">SKILL</h1>
+    </div>
+    <div class=" m-4 p-4 gap-2 flex">
+        <div class="gap-4 grid grid-cols-3">
+            <a href="https://php.net" data-aos="fade-right" data-aos-duration="1500">
+                <img src="/image/gambar/php.webp" alt="PHP" class="w-20 h-10 lg:w-20 lg:h-12  hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
+            </a>
+            <a href="https://laravel.com" data-aos="fade-up" data-aos-duration="1500">
+                <img src="/image/gambar/Laravel.webp" alt="Laravel" class="w-20 h-10 lg:w-20 lg:h-12  hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
+            </a>
+            <a href="https://tailwindcss.com" data-aos="fade-left" data-aos-duration="1500">
+                <img src="/image/gambar/tailwind.webp" alt="TailwindCSS" class="w-20 h-10 lg:w-20 lg:h-12  hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
+            </a>
+            <a href="https://nodejs.org" data-aos="fade-right" data-aos-duration="1500">
+                <img src="/image/gambar/node.webp" alt="NodeJS" class="w-20 h-10 lg:w-20 lg:h-12  hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
+            </a>
+            <a data-aos="fade-up" data-aos-duration="1500">
+                <img src="/image/gambar/js.webp" alt="JavaScript" class="w-20 h-10 lg:w-20 lg:h-12  hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
+            </a>
+        </div>
+    </div>
+    <div class="flex flex-col m-4 p-4">
+        <h1 class="text-4xl dark:text-white text-gray-600">PROGRESS</h1>
+        <div class="flex flex-col">
+            <h1>PHP</h1>
+            <div class="flex flex-row gap-2">
+                <div class="w-56 bg-gray-200 rounded-full h-4 flex flex-row">
+                    <div class="bg-blue-600 h-4 rounded-full" style="width: 75%;"></div>
+                </div>
+                <p >75%</pc>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <h1>Laravel</h1>
+            <div class="flex flex-row gap-2">
+                <div class="w-56 bg-gray-200 rounded-full h-4 flex flex-row">
+                    <div class="bg-blue-600 h-4 rounded-full" style="width: 80%;"></div>
+                </div>
+                <p >80%</pc>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <h1>TailwindCSS</h1>
+            <div class="flex flex-row gap-2">
+                <div class="w-56 bg-gray-200 rounded-full h-4 flex flex-row">
+                    <div class="bg-blue-600 h-4 rounded-full" style="width: 45%;"></div>
+                </div>
+                <p >45%</pc>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <h1>NodeJS</h1>
+            <div class="flex flex-row gap-2">
+                <div class="w-56 bg-gray-200 rounded-full h-4 flex flex-row">
+                    <div class="bg-blue-600 h-4 rounded-full" style="width: 45%;"></div>
+                </div>
+                <p >45%</pc>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <h1>JavaScript</h1>
+            <div class="flex flex-row gap-2">
+                <div class="w-56 bg-gray-200 rounded-full h-4 flex flex-row">
+                    <div class="bg-blue-600 h-4 rounded-full" style="width: 50%;"></div>
+                </div>
+                <p >50%</pc>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col m-4 p-4 gap-2">
+        <h1 class="text-4xl dark:text-white text-gray-600" data-aos="zoom-in-right" data-aos-duration="1500">Sertifikat</h1>
+        <div class="grid grid-cols-3">
+            <img data-aos="fade-right" data-aos-duration="1500" src="/image/sertifikat/baznas.webp" alt="Badan Amil Zakat Nasional" class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none">
+            <img data-aos="fade-right" data-aos-duration="1500" src="/image/sertifikat/serti1.webp" alt="Sertifikat 1" class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none">
+            <img data-aos="fade-right" data-aos-duration="1500" src="/image/sertifikat/serti2.webp" alt="Sertifikat 2" class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none">
+        </div>
+    </div>
+    <footer class="h-24"></footer>
+    <%-include("./partials/bottom-nav")-%>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+        var map = L.map('map').setView([-6.197797, 106.956041], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.marker([-6.197797, 106.956041]).addTo(map)
+            .bindPopup('Daerah Rumah')
+            .openPopup();
+    </script>
+</body>
+</html>

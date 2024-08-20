@@ -1,50 +1,29 @@
-const express = require('express')
-const path = require('path')
-const nodemailer = require("nodemailer");
+const express = require("express");
+const app = express();
+const path = require("path");
+const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
-const port = 3000
-const app = express()
-
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.urlencoded({ extended: true }))
-app.set('view engine', 'ejs')
-
-const transporter = nodemailer.createTransport({
-    port: 465,               // true for 465, false for other ports
-    host: "smtp.gmail.com",
-    auth: {
-        user: 'yankurniawan60@gmail.com',
-        pass: 'syuf ypld xqpk kfmh',
-    },
-    secure: true,
+app.get("/", (req, res) => {
+  res.render("index");
+});
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
+app.get("/cv", (req, res) => {
+  const filePath = path.join(__dirname, "public", "pdf", "Fian Kurniawan.pdf");
+  res.download(filePath, "cv.pdf", (err) => {
+    if (err) {
+      console.error("Error downloading the file:", err);
+      res.status(500).send("File download failed.");
+    }
+  });
 });
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Home'
-    })
-})
-
-app.post('/test', (req, res) => {
-    const {from, subject, text} = req.body;
-    const mailData = {
-        from: from,
-        to: "yankurniawan60@gmail.com",
-        subject: `${subject} dari ${from}`,
-        text: text,
-    };
-
-    transporter.sendMail(mailData, (error, info) => {
-        if(error) {
-            return console.log(error);
-        }
-        alert('Pesan email telah terkirim ke Saya')
-        res.redirect('/');
-    });
-})
-
-app.listen(port, () => {
-    console.log(`Listening at ${port}`)
-})
+app.listen(PORT, () => {
+  console.log(`The app start on http://localhost:${PORT}`);
+});
