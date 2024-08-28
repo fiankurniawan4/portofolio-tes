@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ darkMode: false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')) || false"
+<html lang="en" x-data="{ darkMode: false, open: false, imageSrc: '' }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')) || false"
   x-bind:class="{ 'dark': darkMode }">
 
   <%-include("./partials/header")-%>
@@ -22,10 +22,6 @@
                 </div>
             </div>
             
-        </div>
-        <div class="w-56 hidden lg:block absolute right-0 p-6 bg-white rounded-lg shadow-lg">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Lokasi</h2>
-            <div id="map" class="rounded-lg shadow-lg"></div>
         </div>
     </div>
     <div class="m-4 p-4">
@@ -103,25 +99,97 @@
     </div>
     <div class="flex m-4 p-4">
         <div class="grid grid-cols-4 gap-4">
-            <img data-aos="fade-right" data-aos-duration="1500" src="/image/sertifikat/baznas.webp" alt="Badan Amil Zakat Nasional" class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none">
-            <img data-aos="fade-right" data-aos-duration="1500" src="/image/sertifikat/serti1.webp" alt="Sertifikat 1" class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none">
-            <img data-aos="fade-right" data-aos-duration="1500" src="/image/sertifikat/serti2.webp" alt="Sertifikat 2" class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none">
+          <!-- Sertifikat Images -->
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/sertifikat/baznas.webp" 
+               alt="Badan Amil Zakat Nasional" 
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/sertifikat/baznas.webp'">
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/sertifikat/serti1.webp" 
+               alt="Sertifikat 1" 
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/sertifikat/serti1.webp'">
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/sertifikat/serti2.webp" 
+               alt="Sertifikat 2" 
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/sertifikat/serti2.webp'">        
+          <!-- Modal -->
+          <div x-show="open" 
+               x-transition
+               class="fixed inset-0 flex items-center justify-center z-50 bg-black backdrop-blur">
+               <div class="relative w-1/2 bg-white rounded-lg shadow-lg p-4">
+                <button @click="open = false" class="absolute top-2 right-2 text-black text-2xl font-bold">
+                    &times;
+                </button>
+                <!-- Full Image -->
+                <img :src="imageSrc" 
+                   alt="Sertifikat" 
+                   class="w-full h-auto rounded-lg">
+                </div>
+          </div>
         </div>
     </div>
 
+    <div class="m-4 p-4 flex flex-col">
+        <h1 class="text-4xl dark:text-white text-gray-600" data-aos="zoom-in-right" data-aos-duration="1500">Projects</h1>
+        <span class="text-2xl dark:text-white text-gray-600" data-aos="zoom-in-right" data-aos-duration="1500">Project ini ada digithub</span>
+    </div>
+    <div class="flex m-4 p-4">
+        <div class="grid grid-cols-4 gap-4">
+          <!-- Sertifikat Images -->
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/project/kai.webp" 
+               alt="KAI Tugas Sekolah Web" 
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/project/kai.webp'">
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/project/karyawan_dashboard.webp" 
+               alt="Karyawan"
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/project/karyawan_dashboard.webp'">
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/project/lagu.webp" 
+               alt="Lagu"
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/project/lagu.webp'">
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/project/perpus_dashboard.webp" 
+               alt="Perpustakaan"
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/project/perpus_dashboard.webp'">
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/project/MySocial.webp" 
+               alt="MySocial"
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/project/MySocial.webp'">
+          <img data-aos="fade-right" data-aos-duration="1500" 
+               src="/image/project/threetaste.webp" 
+               alt="ThreeTaste"
+               class="w-80 mb-2 hover:cursor-pointer rounded-lg border dark:border-none" 
+               @click="open = true; imageSrc = '/image/project/threetaste.webp'">
+          <div x-show="open" 
+               x-transition
+               class="fixed inset-0 flex items-center justify-center z-50 bg-black backdrop-blur">
+               <div class="relative w-1/2 bg-white rounded-lg shadow-lg p-4">
+                <button @click="open = false" class="absolute top-2 right-2 text-black text-2xl font-bold">
+                    &times;
+                </button>
+                <!-- Full Image -->
+                <img :src="imageSrc" 
+                   alt="Sertifikat" 
+                   class="w-full h-auto rounded-lg">
+                </div>
+          </div>
+        </div>
+    </div>
     <footer class="h-24"></footer>
     <%-include("./partials/bottom-nav")-%>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
-    </script>
-    <script>
-        var map = L.map('map').setView([-6.197797, 106.956041], 10);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-        L.marker([-6.197797, 106.956041]).addTo(map)
-            .bindPopup('Daerah Rumah')
-            .openPopup();
     </script>
 </body>
 </html>
