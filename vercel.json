@@ -10,11 +10,11 @@
     "routes": [
         {
             "src": "/sitemap.xml",
-            "dest": "/sitemap.xml" // Akses langsung ke sitemap
+            "dest": "/sitemap.xml"
         },
         {
             "src": "/(.*)",
-            "dest": "index.js" // Semua permintaan lain tetap ke index.js
+            "dest": "index.js"
         }
     ]
 }
