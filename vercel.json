@@ -1,16 +1,20 @@
 {
     "version": 2,
     "builds": [
-     {
-      "src": "index.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["public/**"] }
-     }
+        {
+            "src": "index.js",
+            "use": "@vercel/node",
+            "config": { "includeFiles": ["public/**"] }
+        }
     ],
     "routes": [
-     {
-      "src": "/(.*)",
-      "dest": "index.js"
-     }
+        {
+            "src": "/sitemap.xml",
+            "dest": "/sitemap.xml" // Akses langsung ke sitemap
+        },
+        {
+            "src": "/(.*)",
+            "dest": "index.js" // Semua permintaan lain tetap ke index.js
+        }
     ]
-   }
+}
