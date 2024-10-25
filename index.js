@@ -24,11 +24,6 @@ app.get("/cv", (req, res) => {
   });
 });
 
-app.get("/sitemap.xml", (req, res) => {
-  res.setHeader('Content-Type', 'application/xml');
-  res.render('sitemap');
-});
-
 app.listen(PORT, () => {
   console.log(`The app start on http://localhost:${PORT}`);
 });
