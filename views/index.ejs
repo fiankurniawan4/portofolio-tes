@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" x-data="{ darkMode: false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')) || false"
   x-bind:class="{ 'dark': darkMode }">
-
-  <%-include("./partials/header")-%>
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fian Kurniawan - Web Developer dari Jakarta Timur. Saya mengerjakan berbagai project dan berfokus pada pengembangan web.">
+    <meta name="keywords" content="Web Developer, Fian Kurniawan, Jakarta, Development, Programming">
+    <meta name="author" content="Fian Kurniawan">
+    <meta property="og:title" content="Fian Kurniawan - Web Developer">
+    <meta property="og:description" content="Selamat datang di portfolio saya. Saya seorang Web Developer yang mengerjakan berbagai project.">
+    <meta property="og:image" content="/image/gambar/fian_red.webp">
+    <meta property="og:url" content="https://fiankurniawan.me">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fian Kurniawan - Web Developer">
+    <meta name="twitter:description" content="Selamat datang di portfolio saya. Saya seorang Web Developer yang mengerjakan berbagai project.">
+    <meta name="twitter:image" content="/image/gambar/fian_red.webp">
+    
+    <title>Fian Kurniawan - Web Developer</title>
+    
+    <%- include("./partials/header") -%>
+  </head>
 
   <body :class="[darkMode ? 'dark:bg-gray-900 dark:text-white' : 'bg-gray-200']">
-
-  <div class="m-6 p-6 flex flex-row justify-center items-center lg:items-center lg:justify-start gap-4 min-h-screen">
-    <div class="flex-1 flex flex-col">
-      <img src="/image/gambar/fian_red.webp" alt="Profile Image" class="w-56 lg:hidden block h-auto rounded-lg object-cover mb-2">
-      <h1 class="text-xl lg:text-3xl font-bold dark:text-white text-gray-600 flex flex-row">Hello, I am Fian Kurniawan <p class="animate-pulse">👋</p></h1>
-      <p class="text-lg lg:text-2xl font-semibold dark:text-white text-gray-600 mb-2">Web Developer</p>
-      <span class="leading-5 text-md lg:text-lg dark:text-white text-gray-600">
-        Saya seorang Web Developer, Saya tinggal di Jakarta Timur. Saat ini belum bekerja dan hanya menambah project saja.
-      </span>
-      <div class="flex flex-row gap-4 mt-2 m-2">
-        <a href="https://github.com/fiankurniawan4">
-          <img src="/image/gambar/github.webp" alt="GitHub" class="w-20 h-10 lg:w-20 lg:h-12 hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
-        </a>
-        <a href="https://www.instagram.com/fiank324">
-          <img src="/image/gambar/instagram.webp" alt="Instagram" class="w-20 h-10 lg:w-20 lg:h-12 hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
-        </a>
+    <div class="m-6 p-6 flex flex-row justify-center items-center lg:items-center lg:justify-start gap-4 min-h-screen">
+      <div class="flex-1 flex flex-col">
+        <img src="/image/gambar/fian_red.webp" alt="Profile Image" class="w-56 lg:hidden block h-auto rounded-lg object-cover mb-2">
+        <h1 class="text-xl lg:text-3xl font-bold dark:text-white text-gray-600 flex flex-row">Hello, I am Fian Kurniawan <p class="animate-pulse">👋</p></h1>
+        <p class="text-lg lg:text-2xl font-semibold dark:text-white text-gray-600 mb-2">Web Developer</p>
+        <span class="leading-5 text-md lg:text-lg dark:text-white text-gray-600">
+          Saya seorang Web Developer, Saya tinggal di Jakarta Timur. Saat ini belum bekerja dan hanya menambah project saja.
+        </span>
+        <div class="flex flex-row gap-4 mt-2 m-2">
+          <a href="https://github.com/fiankurniawan4">
+            <img src="/image/gambar/github.webp" alt="GitHub" class="w-20 h-10 lg:w-20 lg:h-12 hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
+          </a>
+          <a href="https://www.instagram.com/fiank324">
+            <img src="/image/gambar/instagram.webp" alt="Instagram" class="w-20 h-10 lg:w-20 lg:h-12 hover:scale-125 transition-transform duration-300 ease-in-out hover:cursor-pointer rounded-lg border dark:border-none" />
+          </a>
+        </div>
+      </div>
+      <div class="flex-shrink-0 w-full lg:w-1/3 hidden lg:block">
+        <img src="/image/gambar/fian_red.webp" alt="Profile Image" class="w-full h-auto rounded-lg object-cover">
       </div>
     </div>
-    <div class="flex-shrink-0 w-full lg:w-1/3 hidden lg:block">
-      <img src="/image/gambar/fian_red.webp" alt="Profile Image" class="w-full h-auto rounded-lg object-cover">
-    </div>
-  </div>
-  <!-- Bottom Navigation -->
-  <%-include("./partials/bottom-nav")-%>
-</body>
-
+    <!-- Bottom Navigation -->
+    <%- include("./partials/bottom-nav") -%>
+  </body>
 </html>
